@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>Dinosaur Army</title>
+  </head>
+  <body>
+    <p id="bones">0 Bones</p>
+    <p id="crystals">0 Crystals</p>
+    <p id="damagePerSecond">0 DPS</p>
+    <p id="zone">Zone: Oozing Forest (Level 1)</p>
+    <p id="enemyHealth">Hungry Ooze: 10/10 HP</p>
+    <p id="killCounter">0/10 Kills to next level</p>
+    <p><button id = "prevLevel" onclick="prevLevel()">Return to previous level</button> <button id = "nextLevel" onclick="nextLevel()">Advance to next level</button></p>
+    <p id="secondsLeft"></p>
+    <br>
+    <p>Dinos:</p>
+    <p><span id = "dino1dps">dino1 - 0 DPS - Level 0</span> <button style="width:250px"id = "buydino1" onclick="buyDino('dino1')">Purchase dino1 for 5 Bones</button> <span id = "dino1DamageBonus">Next damage bonus at level 10</span></p>
+    <p><span id = "dino2dps">dino2 - 0 DPS - Level 0</span> <button style="width:250px"id = "buydino2" onclick="buyDino('dino2')">Purchase dino2 for 250 Bones</button> <span id = "dino2DamageBonus">Next damage bonus at level 10</span></p>
+    <p><span id = "dino3dps">dino3 - 0 DPS - Level 0</span> <button style="width:250px"id = "buydino3" onclick="buyDino('dino3')">Purchase dino3 for 10000 Bones</button> <span id = "dino3DamageBonus">Next damage bonus at level 10</span></p>
+    <p><span id = "dino4dps">dino4 - 0 DPS - Level 0</span> <button style="width:250px"id = "buydino4" onclick="buyDino('dino4')">Purchase dino4 for 500000 Bones</button> <span id = "dino4DamageBonus">Next damage bonus at level 10</span></p>
+    <p><span id = "dino5dps">dino5 - 0 DPS - Level 0</span> <button style="width:250px"id = "buydino5" onclick="buyDino('dino5')">Purchase dino5 for 25000000 Bones</button> <span id = "dino5DamageBonus">Next damage bonus at level 10</span></p>
+    <br>
+    <p>Upgrades:</p>
+    <p><span>Mutilation - Increase all damage by a multiplicative 10% per level.</span> <span id = "crystalDamageDisplay">Current bonus: 1x</span> <button id = "buyCrystalDamage" onclick="buyCrystalUpgrade('damage')">Upgrade for 10 crystals</button></p>
+    <p><span>Bone Alchemy - Increase all bone drops by a multiplicative 10% per level.</span> <span id = "crystalBoneDisplay">Current bonus: 1x</span> <button id = "buyCrystalBone" onclick="buyCrystalUpgrade('bone')">Upgrade for 10 crystals</button></p>
+    <p><span>Crystallization - Increase crystallized enemy chance by 1% per level.</span> <span id = "crystalCrystalDisplay">Current chance: 3%</span> <button id = "buyCrystalCrystal" onclick="buyCrystalUpgrade('crystal')">Upgrade for 10 crystals</button></p>
+    <br>
+    <p id="rainbowtexttest" style="font-size: large;">Something's coming soon...</p>
+
+    <script src="main.js" charset="utf-8" type="text/javascript"></script>
+  </body>
+</html>
