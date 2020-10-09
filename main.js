@@ -12,7 +12,7 @@ var gameData = {
     autoZoneProgression: true,
     damageMultiplier: 1,
     boneMultiplier: 1,
-    crystalChance: 0.03,
+    crystalChance: 3,
 
     currentEnemy: {
         hp: 10,
