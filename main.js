@@ -19,6 +19,7 @@ var gameData = {
         maxHp: 10,
         level: 1,
         rarity: 0,
+        rarity2: 0,
         type: 0,
         name: "Hungry Ooze"
     },
@@ -28,7 +29,7 @@ var gameData = {
             level: 1,
             power: 1.1,
             baseCost: 10,
-            scaling: 5,
+            scaling: 4,
             cost: 10,
             nameString: "damage"
         },
@@ -36,13 +37,13 @@ var gameData = {
             level: 1,
             power: 1.1,
             baseCost: 10,
-            scaling: 5,
+            scaling: 4,
             cost: 10,
             nameString: "bone"
         },
         crystal: {
             level: 1,
-            power: 1.1,
+            power: 1,
             baseCost: 10,
             scaling: 10,
             cost: 10,
@@ -52,9 +53,9 @@ var gameData = {
 
     dinos: {
         dino1: {
-            quantity: 0,
+            quantity: 1,
             dinoDps: 0,
-            cost: 5,
+            cost: 7,
             scaling: 1.4,
             baseDps: 5,
             multiplier: 1,
@@ -99,7 +100,11 @@ var gameData = {
     }
 }
 
-var enemyNames = ["Hungry Ooze", "Dead Glop",]
+var enemyNames = ["Hungry Ooze", "Dead Glop", "Gooey Phantom", "Slimy Ogre"]
+
+var bossNames = {
+    oozingForest: ["Shrek", "Mystical Slime", "Starving Ooze"]
+}
 
 
 function update() {
@@ -108,7 +113,8 @@ function update() {
     document.getElementById("damagePerSecond").innerHTML = Math.floor(gameData.damagePerSecond) + " DPS"
     document.getElementById("enemyHealth").innerHTML = gameData.currentEnemy.name + ": " + Math.floor(gameData.currentEnemy.hp) + "/" + Math.floor(gameData.currentEnemy.maxHp) + " HP"
     document.getElementById("killCounter").innerHTML = gameData.zoneKillCounterKills + "/" + gameData.zoneKillCounterRequirement + " Kills to next level"
-    document.getElementById("zone").innerHTML = "Zone:" + gameData.currentZone + "(Level " + gameData.currentLevel + ")"
+    document.getElementById("zone").innerHTML = "Zone: " + gameData.currentZone + " (Level " + gameData.currentLevel + ")"
+    
 }
 
 function prevLevel() {
@@ -120,29 +126,61 @@ function prevLevel() {
 }
 
 function nextLevel() {
-    if (gameData.currentLevel == gameData.highestLevelThisGame-1) {
+    if (gameData.currentLevel == gameData.highestLevelThisGame - 1) {
         gameData.currentLevel++
         spawnNewEnemy()
         document.getElementById("killCounter").style.visibility = "visible"
     }
-    if (gameData.currentLevel < gameData.highestLevelThisGame-1) {
+    if (gameData.currentLevel < gameData.highestLevelThisGame - 1) {
         gameData.currentLevel++
         spawnNewEnemy()
     }
 }
 
 function spawnNewEnemy() {
-    lvl = gameData.currentLevel
-    hpMultiplier = 1
-    hpBase = 10
-    hpBeforeExp = hpMultiplier * hpBase * lvl
+    var lvl = gameData.currentLevel
+    var hpMultiplier = 1
+    var hpBase = 10
+    var enemyhp = Math.pow(1.5, lvl - 1) * hpMultiplier * hpBase
+    var bonusCrystalChance = 0
+    var cappedCrystalChance = gameData.crystalChance
+    if (gameData.crystalChance > 99) {
+        bonusCrystalChance = gameData.crystalChance - 99
+        cappedCrystalChance = 99
+    }
+    if (bonusCrystalChance > 99998) {
+        bonusCrystalChance = 99998
+    }
+    var enemyType = 0
+    if (lvl%5 == 0) {
+        enemyType = 1
+    }
+    var enemyName = enemyNames[Math.floor(Math.random() * enemyNames.length)]
+    if (enemyType == 1) {
+        enemyName = bossNames.oozingForest[Math.floor(Math.random() * bossNames.oozingForest.length)]
+    }
+    var rar1 = Math.floor(Math.random() * (1 / (1 - cappedCrystalChance/100)))
+    var rar2 = Math.floor(Math.random() * (1 / (1 - ((0.00001) * (bonusCrystalChance + 1)))))
+
+    if (rar1 >= 1) {
+        rar1 = 1
+        enemyName = "Crystallized " + enemyName
+    }
+    if (rar2 >= 1) {
+        rar2 = 1
+        enemyName = "Elite " + enemyName
+    }
+
+    console.log("" + cappedCrystalChance + " " + bonusCrystalChance)
+
     gameData.currentEnemy = {
-        hp: Math.floor(Math.pow(hpBeforeExp, 1.2)),
-        maxHp: Math.floor(Math.pow(hpBeforeExp, 1.2)),
+        hp: Math.floor(enemyhp * (1 + (9 * enemyType))),
+        maxHp: Math.floor(enemyhp * (1 + (9 * enemyType))),
         level: lvl,
-        rarity: Math.floor(Math.random() * 1.031),
-        type: 0,
-        name: "Hungry Ooze"
+        rarity: rar1,
+        rarity2: rar2,
+        type: enemyType,
+        name: enemyName
     }
 }
 
@@ -150,9 +188,8 @@ function giveDrops(enemy) {
     var bones = 0
     var crystals = 0
 
-    bones = Math.ceil(enemy.maxHp / 5 * (1 + (enemy.rarity * 5)))
-    crystals = Math.ceil(enemy.rarity * enemy.maxHp / 15)
-    console.log(enemy.rarity + " " + enemy.maxHp)
+    bones = Math.ceil(enemy.maxHp / 5 * (1 + (enemy.rarity * 5)) * (1 + (enemy.rarity2 * 5))) * gameData.boneMultiplier
+    crystals = Math.ceil(enemy.rarity * (enemy.maxHp / 15) * (1 + (enemy.rarity2 * 5)))
 
     gameData.bones += bones
     gameData.crystals += crystals
@@ -171,6 +208,12 @@ function attackMonster() {
         if (gameData.zoneKillCounterKills >= gameData.zoneKillCounterRequirement) {
             gameData.highestLevelThisGame++
             gameData.zoneKillCounterKills = 0
+            if (gameData.highestLevelThisGame%5==0) {
+                gameData.zoneKillCounterRequirement = 1
+            }
+            else if (gameData.zoneKillCounterRequirement = 1) {
+                gameData.zoneKillCounterRequirement = 10
+            }
             document.getElementById("killCounter").style.visibility = "hidden";
             if (gameData.autoZoneProgression) {
                 gameData.currentLevel++
@@ -205,9 +248,10 @@ function recalculateDPS() {
 }
 
 function calculateDinoDPS(dino) {
-    dino.dinoDps = dino.baseDps * dino.quantity
-    dino.multiplier = 1 * dino.le
-    document.getElementById(dino.nameString + "dps").innerHTML = dino.nameString + " - " + dino.dinoDps + " DPS - Level " + dino.quantity
+    dino.multiplier = 1 * Math.pow(3, Math.floor(dino.quantity / 10)) * gameData.damageMultiplier
+    dino.dinoDps = dino.baseDps * dino.quantity * dino.multiplier
+    document.getElementById(dino.nameString + "dps").innerHTML = dino.nameString + " - " + Math.floor(dino.dinoDps) + " DPS - Level " + dino.quantity
+    document.getElementById(dino.nameString + "DamageBonus").innerHTML = "Next damage bonus at level " + Math.ceil(dino.quantity / 10) * 10
 }
 
 function buyDino(dinoName) {
@@ -224,15 +268,26 @@ function buyDino(dinoName) {
 function buyCrystalUpgrade(upgradeName) {
     upgrade = gameData.upgrades[upgradeName]
     if (gameData.crystals >= upgrade.cost) {
-
+        gameData.crystals -= upgrade.cost
+        upgrade.level++
+        upgrade.cost = upgrade.baseCost * Math.pow(upgrade.scaling, upgrade.level)
     }
+    gameData.boneMultiplier = 1 * Math.pow(gameData.upgrades.bone.power, gameData.upgrades.bone.level-1)
+    gameData.damageMultiplier = 1 * Math.pow(gameData.upgrades.damage.power, gameData.upgrades.damage.level-1)
+    gameData.crystalChance = (2 + (gameData.upgrades.crystal.level * gameData.upgrades.crystal.power))
+    recalculateDPS()
+    document.getElementById("crystalDamageDisplay").innerHTML = "Current bonus: " + Math.floor(gameData.damageMultiplier * 100)/100 + "x"
+    document.getElementById("crystalBoneDisplay").innerHTML = "Current bonus: " + Math.floor(gameData.boneMultiplier * 100)/100 + "x"
+    document.getElementById("crystalCrystalDisplay").innerHTML = "Current chance: " + Math.floor(gameData.crystalChance) + "%"
+    document.getElementById("buyCrystalDamage").innerHTML = "Upgrade for " + Math.ceil(gameData.upgrades.damage.cost) + " crystals"
+    document.getElementById("buyCrystalBone").innerHTML = "Upgrade for " + Math.ceil(gameData.upgrades.bone.cost) + " crystals"
+    document.getElementById("buyCrystalCrystal").innerHTML = "Upgrade for " + Math.ceil(gameData.upgrades.crystal.cost) + " crystals"
 }
 var r = 255
 var g = 0
 var b = 255
 var step = 1
 function rainbowtexttest() {
-    console.log("" + r + g + b)
     if (step == 1) {
         if (b < 1) {
             step++
@@ -279,7 +334,7 @@ function rainbowtexttest() {
         }
     }
     if (step == 6) {
-        if (r > 254) {  
+        if (r > 254) {
             step = 1
         }
         else {
@@ -295,3 +350,4 @@ function rainbowtexttest() {
 setInterval(update, 1000 / 60)
 setInterval(attackMonster, 1000 / 15)
 rainbowtexttest()
+recalculateDPS()
