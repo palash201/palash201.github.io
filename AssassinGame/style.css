@@ -1,0 +1,45 @@
+body {
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.00) 25% 50%, rgba(0, 0, 0, 0.05) 50% 75%, rgba(0, 0, 0, 0.00) 75% ), linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.00) 25% 50%, rgba(0, 0, 0, 0.05) 50% 75%, rgba(0, 0, 0, 0.00) 75% ), linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.00) 25% 50%, rgba(0, 0, 0, 0.05) 50% 75%, rgba(0, 0, 0, 0.00) 75% ), linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.00) 25% 50%, rgba(0, 0, 0, 0.05) 50% 75%, rgba(0, 0, 0, 0.00) 75% ), 
+    linear-gradient(90deg, #006eff,#653bfd);
+    background-position: 0 0, 0 0, 80px 50px, 80px 50px, 0 0;
+    background-size: 160px 50px, 160px 50px,160px 50px, 160px 50px, 100%;
+    background-color: aquamarine;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.defaultBox {
+    box-sizing: border-box;
+    border:0.8em;
+    border-color: rgba(37, 37, 37, 0.8);
+    border-style: groove;
+    border-radius: 0em;
+    background-color: rgba(255, 255, 255, 0.3);
+    line-height: 1.2em;
+}   
+
+.marginLeft1-16 {
+    margin-left: 6.25%;
+}
+
+.marginTop1-20 {
+    margin-top: 5%;
+}
+
+.headerBox {
+    box-sizing: border-box;
+    border:0.3em;
+    border-color: rgba(127,127,127,0.5);
+    border-style: groove;
+    border-radius: 0em;
+    background-color: rgba(48, 56, 156, 0.3);
+    width: 30%;
+    margin-left: 35%;
+    
+}
+
+.invisible {
+    display: none;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link rel="shortcut icon" href="flowerCropped.png" type="image/x-icon">
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="pure.min.css">
+    <link rel="stylesheet" href="sidemenu.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="ui.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="layout" class="">
+        <!-- Menu toggle -->
+        <a href="#menu" id="menuLink" class="menu-link">
+            <!-- Hamburger icon -->
+            <span></span>
+        </a>
+
+        <div id="menu" class="textCenter">
+            <div class="pure-menu">
+                <a class="pure-menu-heading" href="#">Menu</a>
+
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a id="homeButton" href="#" class="pure-menu-link">Home</a></li>
+                    <li class="pure-menu-item"><a id="invButton" href="#" class="pure-menu-link">Inventory</a></li>
+                    <li class="pure-menu-item"><a id="charButton" href="#" class="pure-menu-link">Character</a></li>
+                    <li class="pure-menu-item"><a id="questButton" href="#" class="pure-menu-link">Quest</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="main">
+
+            <div class="header">
+                <h1 class=""></h1>
+            </div>
+
+            <div id="home" class="content">
+                <div class="pure-g textCenter">
+                    <div class="pure-u-7-24 defaultBox">
+                        <h2 class="content-subhead">Quest</h2>
+                        <p id="questDifficultyText">Quest difficulty: N/A</p>
+                        <p id="questGoldRewardText">Quest gold reward: N/A</p>
+                        <p id="questXPRewardText">Quest XP reward: N/A</p>
+                        <p id="questLootText">Quest loot: N/A</p>
+                        <p id="questTimeLeftText">Time remaining: N/A</p>
+                    </div>
+                    <div class="pure-u-7-24 defaultBox marginLeft1-16">
+                        <h2 class="content-subhead">Character</h2>
+                        <p id="characterClassText">Name: palash</p>
+                        <p id="characterClassText">Class: None</p>
+                        <p id="characterLevelText">Level: 1</p>
+                        <p id="characterXPText">XP: 0/20</p>
+                        <p id="characterGoldText">Gold: 0</p>
+                    </div>
+                    <div class="pure-u-7-24 defaultBox marginLeft1-16">
+                        <h2 class="content-subhead">Pet</h2>
+                        <p id="petNameText">Slime</p>
+                        <p id="petLevelText">Level: 1</p>
+                        <p id="petXPText">XP: 0/20</p>
+                        <p id="petDamageText">Damage: 0</p>
+                        <p id="petBuffText">Buff: N/A</p>
+                    </div>
+                </div>
+
+                <div class="textCenter marginTop1-20 defaultBox">
+                    <h2 class="content-subhead">How to play</h2>
+                    <p>
+                        Welcome to gamename, playername. Open the "Quest" tab and start a quest. You automatically
+                        progress in quests,
+                        however, you can play
+                        actively to finish the quest faster. Completing quests gives rewards based on how difficult they
+                        are. Equip new items in the Inventory tab. Manage your character in the Character tab. Return to
+                        the Home tab for a general overview.
+                    </p>
+                </div>
+            </div>
+            <div id="inventory" class="content invisible">
+                <div class="textCenter marginTop1-20 defaultBox">
+                    <h2 class="content-subhead">Inventory</h2>
+                    <p>
+                        Switch inventory pages with the arrows. Equip items by dragging their icons into your slots.
+                    </p>
+                </div>
+            </div>
+            <div id="character" class="content invisible">
+                <div class="textCenter marginTop1-20 defaultBox">
+                    <h2 class="content-subhead">Character</h2>
+                    <p>
+                        In this menu, you can manage your character.
+                    </p>
+                </div>
+            </div>
+            <div id="quest" class="content invisible">
+                <div class="textCenter marginTop1-20 defaultBox">
+                    <h2 class="content-subhead">Quests</h2>
+                    <p>
+                        Select a quest. New quests are added when old ones are completed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
