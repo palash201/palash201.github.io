@@ -218,6 +218,9 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     }
     #menu {
         left: 150px;
+        border-right: 0.5em;
+        border-color: black;
+        
     }
 
     .menu-link {

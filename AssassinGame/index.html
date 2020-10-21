@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="sidemenu.css">
     <link rel="stylesheet" href="style.css">
     <script src="ui.js" defer></script>
+    <script src="game.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -28,30 +29,28 @@
                     <li class="pure-menu-item"><a id="homeButton" href="#" class="pure-menu-link">Home</a></li>
                     <li class="pure-menu-item"><a id="invButton" href="#" class="pure-menu-link">Inventory</a></li>
                     <li class="pure-menu-item"><a id="charButton" href="#" class="pure-menu-link">Character</a></li>
-                    <li class="pure-menu-item"><a id="questButton" href="#" class="pure-menu-link">Quest</a></li>
+                    <li class="pure-menu-item"><a id="questButton" href="#" class="pure-menu-link">Contracts</a></li>
                 </ul>
             </div>
         </div>
 
         <div id="main">
 
-            <div class="header">
-                <h1 class=""></h1>
-            </div>
+            <div class="marginTop1-20"></div>
 
             <div id="home" class="content">
                 <div class="pure-g textCenter">
                     <div class="pure-u-7-24 defaultBox">
-                        <h2 class="content-subhead">Quest</h2>
-                        <p id="questDifficultyText">Quest difficulty: N/A</p>
-                        <p id="questGoldRewardText">Quest gold reward: N/A</p>
-                        <p id="questXPRewardText">Quest XP reward: N/A</p>
-                        <p id="questLootText">Quest loot: N/A</p>
+                        <h2 class="content-subhead">Contract</h2>
+                        <p id="questNameText">N/A</p>
+                        <p id="questDifficultyText">Contract difficulty: N/A</p>
+                        <p id="questGoldRewardText">Contract gold reward: N/A</p>
+                        <p id="questXPRewardText">Contract XP reward: N/A</p>
                         <p id="questTimeLeftText">Time remaining: N/A</p>
                     </div>
                     <div class="pure-u-7-24 defaultBox marginLeft1-16">
                         <h2 class="content-subhead">Character</h2>
-                        <p id="characterClassText">Name: palash</p>
+                        <p id="characterNameText">palash</p>
                         <p id="characterClassText">Class: None</p>
                         <p id="characterLevelText">Level: 1</p>
                         <p id="characterXPText">XP: 0/20</p>
@@ -70,10 +69,8 @@
                 <div class="textCenter marginTop1-20 defaultBox">
                     <h2 class="content-subhead">How to play</h2>
                     <p>
-                        Welcome to gamename, playername. Open the "Quest" tab and start a quest. You automatically
-                        progress in quests,
-                        however, you can play
-                        actively to finish the quest faster. Completing quests gives rewards based on how difficult they
+                        Welcome to gamename, playername. Open the Contracts tab and start a contract. You
+                        automatically complete contracts. Completing contracts gives rewards based on how difficult they
                         are. Equip new items in the Inventory tab. Manage your character in the Character tab. Return to
                         the Home tab for a general overview.
                     </p>
@@ -96,15 +93,55 @@
                 </div>
             </div>
             <div id="quest" class="content invisible">
-                <div class="textCenter marginTop1-20 defaultBox">
-                    <h2 class="content-subhead">Quests</h2>
+                <div class="defaultBox textCenter marginTop1-20">
+                    <h2 class="content-subhead">Contracts</h2>
                     <p>
-                        Select a quest. New quests are added when old ones are completed.
+                        Select a contract. New contracts are added when old ones are completed. Complete contracts
+                        faster by getting more powerful.
                     </p>
+                    <p id="timeFactorText">Your time factor is: 10/s</p>
+                </div>
+                <div class="pure-u-1-3 textCenter defaultBox marginTop1-20">
+                    <div class="pure-menu-item">
+                        <h3>Contract 1</h3>
+                        <p id="quest1Name">help gnome in the garden put itself back together</p>
+                        <p id="quest1Reward">reward: nothing lol</p>
+                        <p id="quest1Time">Est. time: 10 minutes</p>
+                        <a id="quest1Start" href="#" class="pure-menu-link customButton marginBottom1-25">Start
+                            Contract</a>
+                        <a id="quest1ProgressBar" href="#"
+                            class="pure-menu-link customButton marginBottom1-25 invisible">0%</a>
+                    </div>
+                </div>
+                <div class="pure-u-1-3 textCenter defaultBox marginTop1-20">
+                    <div class="pure-menu-item">
+                        <h3>Contract 2</h3>
+                        <p>help gnome in the garden put itself back together</p>
+                        <p>reward: nothing lol</p>
+                        <a id="startQuest2Button" href="#" class="pure-menu-link customButton marginBottom1-25">Start
+                            Contract</a>
+                    </div>
+                </div>
+                <div class="pure-u-1-3 textCenter defaultBox marginTop1-20">
+                    <div class="pure-menu-item">
+                        <h3>Contract 3</h3>
+                        <p>help gnome in the garden put itself back together</p>
+                        <p>reward: nothing lol</p>
+                        <a id="startQuest3Button" href="#" class="pure-menu-link customButton marginBottom1-25">Start
+                            Contract</a>
+                    </div>
+                </div>
+                <div class="pure-u-1-3 textCenter defaultBox marginTop1-20">
+                    <div class="pure-menu-item">
+                        <h3>Contract 4</h3>
+                        <p>help gnome in the garden put itself back together</p>
+                        <p>reward: nothing lol</p>
+                        <a id="startQuest4Button" href="#" class="pure-menu-link customButton marginBottom1-25">Start
+                            Contract</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>
