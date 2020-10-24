@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="pure.min.css">
     <link rel="stylesheet" href="sidemenu.css">
     <link rel="stylesheet" href="style.css">
-    <script src="ui.js" defer></script>
+    <script src="HackTimer.min.js" defer></script>
     <script src="game.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -29,6 +29,7 @@
                     <li class="pure-menu-item"><a id="homeButton" href="#" class="pure-menu-link">Home</a></li>
                     <li class="pure-menu-item"><a id="invButton" href="#" class="pure-menu-link">Inventory</a></li>
                     <li class="pure-menu-item"><a id="charButton" href="#" class="pure-menu-link">Character</a></li>
+                    <li class="pure-menu-item"><a id="shopButton" href="#" class="pure-menu-link">Shop</a></li>
                     <li class="pure-menu-item"><a id="questButton" href="#" class="pure-menu-link">Contracts</a></li>
                 </ul>
             </div>
@@ -92,6 +93,69 @@
                     </p>
                 </div>
             </div>
+            <div id="shop" class="content invisible">
+                <div class="textCenter marginTop1-20 defaultBox">
+                    <h2 class="content-subhead">Shop</h2>
+                    <p>
+                        Buy various upgrades and gear with gold here.
+                    </p>
+                </div>
+                <div class="marginTop1-20 shopBox">
+                    <div class="">
+                        <h4>Weapons</h4>
+                        <div>
+                            <span id="shopWeapon1">Wooden Broadsword</span>
+                            <a id="shopWeapon1Buy" href="#" class="pure-menu-link shopButton">50 Gold</a>
+                        </div>
+                        <div>
+                            <span id="shopWeapon2">Bronze Dagger</span>
+                            <a id="shopWeapon2Buy" href="#" class="pure-menu-link shopButton">150 Gold</a>
+                        </div>
+                        <div>
+                            <span id="shopWeapon2">Steel Longsword</span>
+                            <a id="shopWeapon2Buy" href="#" class="pure-menu-link shopButton">1000 Gold</a>
+                        </div>
+                        <div>
+                            <span id="shopWeapon2">Golem's Fist</span>
+                            <a id="" href="#" class="pure-menu-link shopButton">3500 Gold</a>
+                        </div>
+                        <div>
+                            <span id="shopWeapon2">Dragonfang Dagger</span>
+                            <a id="shopWeapon2Buy" href="#" class="pure-menu-link shopButton">15000 Gold</a>
+                        </div>
+                    </div>
+                    <div class="">
+                        <h4>Trinkets</h4>
+                        <div>
+                            <span id="shopTrinket1">Dismembered Eye</span>
+                            <a id="shopTrinket1Buy" href="#" class="pure-menu-link shopButton">50 Gold</a>
+                        </div>
+                        <div>
+                            <span id="shopWeapon2">Radiant Gemstone</span>
+                            <a id="shopWeapon2Buy" href="#" class="pure-menu-link shopButton">1000 Gold</a>
+                        </div>
+                        <div>
+                            <span id="shopWeapon2">Rocket Boots</span>
+                            <a id="shopWeapon2Buy" href="#" class="pure-menu-link shopButton">15000 Gold</a>
+                        </div>
+                        <div>
+                            <span id="shopWeapon2">Hand of Midas</span>
+                            <a id="" href="#" class="pure-menu-link shopButton">500000 Gold</a>
+                        </div>
+                        <div>
+                            <span id="shopWeapon2">Black Heart</span>
+                            <a id="shopWeapon2Buy" href="#" class="pure-menu-link shopButton">10000000 Gold</a>
+                        </div>
+                    </div>
+                    <div class="">
+                        <h4>Misc.</h4>
+                        <div>
+                            <span id="shopWeapon1">Extra Trinket Slot</span>
+                            <a id="shopWeapon1Buy" href="#" class="pure-menu-link shopButton">1000000 Gold</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="quest" class="content invisible">
                 <div class="defaultBox textCenter marginTop1-20">
                     <h2 class="content-subhead">Contracts</h2>
@@ -116,28 +180,38 @@
                 <div class="pure-u-1-3 textCenter defaultBox marginTop1-20">
                     <div class="pure-menu-item">
                         <h3>Contract 2</h3>
-                        <p>help gnome in the garden put itself back together</p>
-                        <p>reward: nothing lol</p>
-                        <a id="startQuest2Button" href="#" class="pure-menu-link customButton marginBottom1-25">Start
+                        <p id="quest2Name">help gnome in the garden put itself back together</p>
+                        <p id="quest2Reward">reward: nothing lol</p>
+                        <p id="quest2Time">Est. time: 10 minutes</p>
+                        <a id="quest2Start" href="#" class="pure-menu-link customButton marginBottom1-25">Start
                             Contract</a>
+                        <a id="quest2ProgressBar" href="#"
+                            class="pure-menu-link customButton marginBottom1-25 invisible">0%</a>
+
                     </div>
                 </div>
                 <div class="pure-u-1-3 textCenter defaultBox marginTop1-20">
                     <div class="pure-menu-item">
                         <h3>Contract 3</h3>
-                        <p>help gnome in the garden put itself back together</p>
-                        <p>reward: nothing lol</p>
-                        <a id="startQuest3Button" href="#" class="pure-menu-link customButton marginBottom1-25">Start
+                        <p id="quest3Name">help gnome in the garden put itself back together</p>
+                        <p id="quest3Reward">reward: nothing lol</p>
+                        <p id="quest3Time">Est. time: 10 minutes</p>
+                        <a id="quest3Start" href="#" class="pure-menu-link customButton marginBottom1-25">Start
                             Contract</a>
+                        <a id="quest3ProgressBar" href="#"
+                            class="pure-menu-link customButton marginBottom1-25 invisible">0%</a>
                     </div>
                 </div>
                 <div class="pure-u-1-3 textCenter defaultBox marginTop1-20">
                     <div class="pure-menu-item">
                         <h3>Contract 4</h3>
-                        <p>help gnome in the garden put itself back together</p>
-                        <p>reward: nothing lol</p>
-                        <a id="startQuest4Button" href="#" class="pure-menu-link customButton marginBottom1-25">Start
+                        <p id="quest4Name">help gnome in the garden put itself back together</p>
+                        <p id="quest4Reward">reward: nothing lol</p>
+                        <p id="quest4Time">Est. time: 10 minutes</p>
+                        <a id="quest4Start" href="#" class="pure-menu-link customButton marginBottom1-25">Start
                             Contract</a>
+                        <a id="quest4ProgressBar" href="#"
+                            class="pure-menu-link customButton marginBottom1-25 invisible">0%</a>
                     </div>
                 </div>
             </div>
