@@ -275,7 +275,7 @@ function buyCrystalUpgrade(upgradeName) {
     if (gameData.crystals >= upgrade.cost) {
         gameData.crystals -= upgrade.cost;
         upgrade.level++;
-        upgrade.cost = upgrade.baseCost * Math.pow(upgrade.scaling, upgrade.level);
+        upgrade.cost = upgrade.baseCost * Math.pow(upgrade.scaling, upgrade.level-1);
     }
     gameData.boneMultiplier = 1 * Math.pow(gameData.upgrades.bone.power, gameData.upgrades.bone.level - 1);
     gameData.damageMultiplier = 1 * Math.pow(gameData.upgrades.damage.power, gameData.upgrades.damage.level - 1);
