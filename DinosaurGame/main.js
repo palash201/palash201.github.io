@@ -11,6 +11,9 @@ function update() {
     document.getElementById("crystals").innerHTML = formatNumber(gameData.crystals) + " Crystals";
     document.getElementById("fossils").innerHTML = formatNumber(gameData.fossils) + " Fossils";
     document.getElementById("portalButton").innerHTML = "Portal (+" + formatNumber(gameData.fossilsOnPortal) + " Fossils) (NO Confirmation)";
+    if (gameData.highestLevelThisGame <= 50) {
+        document.getElementById("portalButton").innerHTML = "Portal (Defeat Level 50 to Unlock!)";
+    }
     document.getElementById("damagePerSecond").innerHTML = formatNumber(gameData.damagePerSecond) + " DPS (" + formatNumber(gameData.damagePerSecond/15) + " Per Tick)";
     document.getElementById("enemyHealth").innerHTML = gameData.currentEnemy.name + ": " + formatNumber(gameData.currentEnemy.hp) + "/" + formatNumber(gameData.currentEnemy.maxHp) + " HP";
     document.getElementById("killCounter").innerHTML = gameData.zoneKillCounterKills + "/" + gameData.zoneKillCounterRequirement + " Kills to next level";
@@ -24,7 +27,6 @@ function update() {
     document.getElementById("crystalDamageLevel").innerHTML = "Mutilation (Level " + gameData.upgrades.damage.level + ") - Increase all damage by a multiplicative " + formatNumber((gameData.upgrades.damage.power-1)*100) + "% per level.";
     document.getElementById("crystalBoneLevel").innerHTML = "Bone Alchemy (Level " + gameData.upgrades.bone.level + ") - Increase all bone drops by a multiplicative " + formatNumber((gameData.upgrades.bone.power-1)*100) + "% per level.";
     document.getElementById("crystalCrystalLevel").innerHTML = "Crystallization (Level " + gameData.upgrades.crystal.level + ") - Increase crystallized enemy chance by 1% per level.";
-
     document.getElementById("crystalDamagePowerDisplay").innerHTML = "Current bonus: " + formatNumber(gameData.fossilUpgrades.damagePower.power * gameData.fossilUpgrades.damagePower.level * 100) + "%";
     document.getElementById("crystalBonePowerDisplay").innerHTML = "Current bonus: " + formatNumber(gameData.fossilUpgrades.bonePower.power * gameData.fossilUpgrades.bonePower.level * 100) + "%";
     document.getElementById("crystalGainDisplay").innerHTML = "Current bonus: " + formatNumber(gameData.crystalMultiplier) + "x";
@@ -184,16 +186,18 @@ function doWipe() {
 }
 
 function doPortal() {
-    let fossilsToAdd = gameData.fossilsOnPortal;
-    let fossilsToKeep = gameData.fossils;
-    let highestLevelAllTimeKeep = gameData.highestLevelAllTime;
-    let fossilUpgradesKeep = gameData.fossilUpgrades;
-    doWipe();
-    gameData.fossils = fossilsToKeep;
-    gameData.fossils += fossilsToAdd;
-    gameData.highestLevelAllTime = highestLevelAllTimeKeep;
-    gameData.fossilUpgrades = fossilUpgradesKeep;
-    recalculateDPS();
+    if (gameData.highestLevelThisGame > 50) {
+        let fossilsToAdd = gameData.fossilsOnPortal;
+        let fossilsToKeep = gameData.fossils;
+        let highestLevelAllTimeKeep = gameData.highestLevelAllTime;
+        let fossilUpgradesKeep = gameData.fossilUpgrades;
+        doWipe();
+        gameData.fossils = fossilsToKeep;
+        gameData.fossils += fossilsToAdd;
+        gameData.highestLevelAllTime = highestLevelAllTimeKeep;
+        gameData.fossilUpgrades = fossilUpgradesKeep;
+        recalculateDPS();
+    }
 }
 
 function formatNumber(number) {
