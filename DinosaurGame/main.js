@@ -258,7 +258,7 @@ function spawnNewEnemy() {
         isBoss = true;
         enemyName = bossNames[Math.floor(Math.random() * bossNames.length)];
         enemyhp *= 10;
-        if (lvl == gameData.highestLevelThisGame) {
+        if (lvl == gameData.highestLevelThisGame && lvl >= 50) {
             isAncient = true;
         }
     }
@@ -294,7 +294,7 @@ function giveDrops(enemy) {
         crystals = Math.ceil(enemy.maxHp / 15) * gameData.crystalMultiplier;
     }
     if (enemy.ancient) {
-        fossils = Math.floor(Math.pow(1.05, gameData.currentLevel/5-10) * Math.pow((gameData.currentLevel / 5-10), 3) * gameData.fossilMultiplier);
+        fossils = Math.floor(Math.pow(1.05, gameData.currentLevel/5-9) * Math.pow((gameData.currentLevel / 5-9), 3) * gameData.fossilMultiplier);
     }
 
     gameData.bones += bones;
