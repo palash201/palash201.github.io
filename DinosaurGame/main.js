@@ -294,7 +294,7 @@ function giveDrops(enemy) {
         crystals = Math.ceil(enemy.maxHp / 15) * gameData.crystalMultiplier;
     }
     if (enemy.ancient) {
-        fossils = Math.floor(Math.pow((gameData.currentLevel / 5), 2)) * gameData.fossilMultiplier;
+        fossils = Math.floor(Math.pow(1.05, gameData.currentLevel/5-10) * Math.pow((gameData.currentLevel / 5-10), 3) * gameData.fossilMultiplier);
     }
 
     gameData.bones += bones;
