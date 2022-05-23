@@ -118,7 +118,7 @@ function doWipe() {
             },
             crystalGain: {
                 level: 1,
-                power: 1.1,
+                power: 1.2,
                 baseCost: 1,
                 scaling: 2,
                 cost: 1,
