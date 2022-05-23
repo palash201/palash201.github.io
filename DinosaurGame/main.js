@@ -37,8 +37,8 @@ function update() {
     document.getElementById("buyFossilGain").innerHTML = "Upgrade for " + formatNumber(gameData.fossilUpgrades.fossilGain.cost) + " fossils";
     document.getElementById("crystalDamagePowerLevel").innerHTML = "Annihilation (Level " + gameData.fossilUpgrades.damagePower.level + ") - Increase Mutilation base by 1% per level.";
     document.getElementById("crystalBonePowerLevel").innerHTML = "Bone Transmutation (Level " + gameData.fossilUpgrades.bonePower.level + ") - Increase Bone Alchemy base by 1% per level.";
-    document.getElementById("crystalGainLevel").innerHTML = "Duplication (Level " + gameData.fossilUpgrades.crystalGain.level + ") - Increase all crystal drops by a multiplicative 10% per level.";
-    document.getElementById("fossilGainLevel").innerHTML = "Archaeology (Level " + gameData.fossilUpgrades.fossilGain.level + ") - Increase all fossil drops by a multiplicative 10% per level.";
+    document.getElementById("crystalGainLevel").innerHTML = "Duplication (Level " + gameData.fossilUpgrades.crystalGain.level + ") - Increase all crystal drops by a multiplicative " + formatNumber((gameData.fossilUpgrades.crystalGain.power-1)*100) + "% per level.";
+    document.getElementById("fossilGainLevel").innerHTML = "Archaeology (Level " + gameData.fossilUpgrades.fossilGain.level + ") - Increase all fossil drops by a multiplicative " + formatNumber((gameData.fossilUpgrades.fossilGain.power-1)*100) + "% per level.";
 }
 
 function doWipe() {
