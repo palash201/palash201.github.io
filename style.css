@@ -1,0 +1,11 @@
+li:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+p, ul {
+    font-size: large;
+}
+
+body {
+    line-height: 1.5;
+}
