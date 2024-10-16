@@ -1,11 +1,47 @@
-li:not(:last-child) {
-    margin-bottom: 8px;
-}
-
-p, ul {
-    font-size: large;
-}
-
 body {
-    line-height: 1.5;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#projects, #photos {
+    margin-top: 30px;
+}
+
+.project {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.project h3 {
+    margin-top: 0;
+}
+
+.photo-gallery {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.photo-gallery img {
+    width: 200px;
+    height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #6c757d;
 }
