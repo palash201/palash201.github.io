@@ -4,40 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palash Keswani - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Project Gallery</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Palash Keswani's Portfolio</h1>
-        <p>Welcome to my personal website showcasing my projects and work.</p>
-    </header>
-
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="project">
-            <h3>Custom Minecraft Server Modification</h3>
-            <p>Enhanced server performance by debugging memory leaks and optimizing concurrency.</p>
-            <a href="https://github.com/your-username/minecraft-server-modification" target="_blank">View on GitHub</a>
+    <div class="container">
+        <div class="project-display">
+            <button class="nav-button" id="left-button">&lt;</button>
+            <div class="project-content" id="project-content">
+                <div class="project" id="project1">
+                    <h2>Project Title 1</h2>
+                    <img src="path/to/image1.jpg" alt="Project 1 Image" class="project-image">
+                    <a href="https://example.com/project1" target="_blank">Project Link</a>
+                </div>
+                <div class="project" id="project2">
+                    <h2>Project Title 2</h2>
+                    <img src="path/to/image2.jpg" alt="Project 2 Image" class="project-image">
+                    <a href="https://example.com/project2" target="_blank">Project Link</a>
+                </div>
+                <div class="project" id="project3">
+                    <h2>Project Title 3</h2>
+                    <img src="path/to/image3.jpg" alt="Project 3 Image" class="project-image">
+                    <a href="https://example.com/project3" target="_blank">Project Link</a>
+                </div>
+            </div>
+            <button class="nav-button" id="right-button">&gt;</button>
         </div>
-        <div class="project">
-            <h3>Other Project Example</h3>
-            <p>Short description of the project goes here.</p>
-            <a href="https://github.com/your-username/other-project" target="_blank">View on GitHub</a>
-        </div>
-    </section>
-
-    <section id="photos">
-        <h2>Photos</h2>
-        <div class="photo-gallery">
-            <img src="images/photo1.jpg" alt="Project Screenshot 1">
-            <img src="images/photo2.jpg" alt="Project Screenshot 2">
-            <img src="images/photo3.jpg" alt="Project Screenshot 3">
-        </div>
-    </section>
-
-    <footer>
-        <p>Contact: <a href="mailto:palashk1003@gmail.com">palashk1003@gmail.com</a></p>
-    </footer>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
