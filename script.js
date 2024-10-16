@@ -1,11 +1,18 @@
-// JavaScript to control the left and right navigation buttons
+// JavaScript to control the left and right navigation buttons with a sliding effect
 let currentProjectIndex = 0;
 const projects = document.querySelectorAll('.project');
 
-// Function to update the displayed project
+// Function to update the displayed project and adjust overlapping
 function showProject(index) {
     projects.forEach((project, i) => {
         project.classList.toggle('active', i === index);
+        if (i < index) {
+            project.style.transform = 'translateX(-100%)';
+        } else if (i > index) {
+            project.style.transform = 'translateX(100%)';
+        } else {
+            project.style.transform = 'translateX(0)';
+        }
     });
 }
 
