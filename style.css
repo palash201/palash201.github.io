@@ -1,47 +1,69 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: #343a40;
+/* Basic page styling */
+body, html {
     margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #0066ff, #cc00ff);
+    font-family: Arial, sans-serif;
+}
+
+/* Container to center the content */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
     padding: 20px;
+    border-radius: 10px;
 }
 
-header {
+/* Project display area */
+.project-display {
+    display: flex;
+    align-items: center;
+}
+
+/* Project content styling */
+.project-content {
+    width: 400px;
     text-align: center;
-    padding: 20px 0;
-}
-
-#projects, #photos {
-    margin-top: 30px;
+    overflow: hidden;
 }
 
 .project {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
+    display: none;
 }
 
-.project h3 {
-    margin-top: 0;
+.project.active {
+    display: block;
 }
 
-.photo-gallery {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
+.project h2 {
+    margin: 10px 0;
 }
 
-.photo-gallery img {
-    width: 200px;
-    height: 150px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.project-image {
+    width: 100%;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin: 10px 0;
 }
 
-footer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.9em;
-    color: #6c757d;
+.nav-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.nav-button:hover {
+    background-color: #555;
 }
